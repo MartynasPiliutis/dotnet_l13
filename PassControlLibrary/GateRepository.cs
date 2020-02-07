@@ -13,10 +13,27 @@ namespace PassControlLibrary
         public GateRepository()
         {
             GateList = new List<Gate>();
-            GateList.Add(new Gate(1001, "North Pass"));
-            GateList.Add(new Gate(1002, "East Pass"));
-            GateList.Add(new Gate(1003, "South Pass"));
-            GateList.Add(new Gate(1004, "West Pass"));
+            GateList.Add(new Gate(31, "North Pass"));
+            GateList.Add(new Gate(32, "East Pass"));
+            GateList.Add(new Gate(33, "South Pass"));
+            GateList.Add(new Gate(34, "West Pass"));
+        }
+
+        public List<Gate> GetGateList()
+        {
+            return GateList;
+        }
+
+        public string GetGateCodeByID(int gateId)
+        {
+            foreach (var item in GateList)
+            {
+                if (gateId == item.GateId)
+                {
+                    return item.GateCode;
+                }
+            }
+            return null;
         }
     }
 }

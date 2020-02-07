@@ -9,7 +9,7 @@ namespace PassControlLibrary
     public class Gate
     {
         public int GateId { get; private set; }
-        public string GateCode { get; private set; }
+        public string GateCode { get; set; }
 
         public Gate(int gateid, string gatecode)
         {

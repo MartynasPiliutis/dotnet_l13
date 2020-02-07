@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PassControlLibrary
 {
-    class EmployeeRepository
+    public class EmployeeRepository
     {
         private List<Employee> EmployeeList;
         public EmployeeRepository()
@@ -32,6 +32,18 @@ namespace PassControlLibrary
             EmployeeList.Add(new Employee(2018, "Bronius Nauseda", new List<int> {31}));
             EmployeeList.Add(new Employee(2019, "John Doe", new List<int> {33}));
             EmployeeList.Add(new Employee(2020, "Deimante Klimiene", new List<int> {33, 34}));
+        }
+        
+        public Employee GetEmployeeById(int findEmployeeId)
+        {
+            foreach (var employee in EmployeeList)
+            {
+                if (findEmployeeId == employee.EmployeeId)
+                {
+                    return employee;
+                }
+            }
+            return null;
         }
     }
 }
