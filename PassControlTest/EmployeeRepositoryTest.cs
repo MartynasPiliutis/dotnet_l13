@@ -8,6 +8,17 @@ namespace PassControlTest
     public class EmployeeRepositoryTest
     {
         [TestMethod]
+        public void TikrinameArGrazinaVisaDarbuotojuSarasa()
+        {
+            //Assing
+            EmployeeRepository employeeRepository = new EmployeeRepository();
+            //Act
+            int employeeListCount = employeeRepository.GetEmployeeList().Count;
+            //Assert
+            Assert.AreEqual(employeeListCount, 20);
+        }
+
+        [TestMethod]
         public void TikrinameArSurandaDarbuotojaPagalEmployeeId()
         {
             //Assign

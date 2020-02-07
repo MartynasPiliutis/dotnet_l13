@@ -33,6 +33,11 @@ namespace PassControlLibrary
             EmployeeList.Add(new Employee(2019, "John Doe", new List<int> {33}));
             EmployeeList.Add(new Employee(2020, "Deimante Klimiene", new List<int> {33, 34}));
         }
+
+        public List<Employee> GetEmployeeList()
+        {
+            return EmployeeList;
+        }
         
         public Employee GetEmployeeById(int findEmployeeId)
         {
