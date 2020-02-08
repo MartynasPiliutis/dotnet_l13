@@ -8,5 +8,8 @@ namespace PassControlLibrary
 {
     class EventController
     {
+        private List<Event> EventList;
+
+
     }
 }
