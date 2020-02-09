@@ -16,10 +16,7 @@ namespace PassControlLibrary
             bool employeePass;
             int employeeIdFind = employee.EmployeeId;
             employeePass = employee.CheckEmployeeHasRight(gateIdPass);
-            if (employeeIdFind != 0)
-            {
-                EventList.Add(new Event(GetNewEventId(), employeeId, gateIdPass, GetNewEventPassTime(), employeePass)); 
-            }
+            EventList.Add(new Event(GetNewEventId(), employeeId, gateIdPass, GetNewEventPassTime(), employeePass));
             return employeePass;
         }
 
