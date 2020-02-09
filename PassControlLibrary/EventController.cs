@@ -6,10 +6,31 @@ using System.Threading.Tasks;
 
 namespace PassControlLibrary
 {
-    class EventController
+    public class EventController
     {
-        private List<Event> EventList;
+        List<Event> EventList = new List<Event>();
+        public bool TryPass(int employeeId, int gateIdPass)
+        {
+            EmployeeRepository employeeRepository = new EmployeeRepository();
+            Employee employee = employeeRepository.GetEmployeeById(employeeId);
+            bool employeePass;
+            int employeeIdFind = employee.EmployeeId;
+            employeePass = employee.CheckEmployeeHasRight(gateIdPass);
+            if (employeeIdFind != 0)
+            {
+                EventList.Add(new Event(GetNewEventId(), employeeId, gateIdPass, GetNewEventPassTime(), employeePass)); 
+            }
+            return employeePass;
+        }
 
+        public long GetNewEventId()
+        {
+            return Convert.ToInt64($"{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}{DateTime.Now.Millisecond}");
+        }
 
+        public DateTime GetNewEventPassTime()
+        {
+            return DateTime.Now;
+        }
     }
 }
