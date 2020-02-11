@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReportEvents.cs" />
+    <Compile Include="ReportTotalHours.cs" />
     <Compile Include="GateRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
     <Compile Include="EventController.cs" />
