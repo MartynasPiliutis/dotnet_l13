@@ -8,10 +8,17 @@ namespace PassControlLibrary
 {
     public class EventController
     {
+            //DEPENDENCY INJECTION START
+        private EmployeeRepository employeeRepository;
+        public EventController(EmployeeRepository emploRepo)
+        {
+            this.employeeRepository = emploRepo;
+        }
+            //DEPENDENCY INJECTION START
+
         List<Event> EventList = new List<Event>();
         public bool TryPass(int employeeId, int gateIdPass)
         {
-            EmployeeRepository employeeRepository = new EmployeeRepository();
             Employee employee = employeeRepository.GetEmployeeById(employeeId);
             bool employeePass;
             int employeeIdFind = employee.EmployeeId;

@@ -23,5 +23,10 @@ namespace PassControlLibrary
             Pass = pass;
         }
 
+        public EmployeeRepository GetEmployeeRepository()
+        {
+            EmployeeRepository employeeRepository = new EmployeeRepository();
+            return employeeRepository;
+        }
     }
 }
