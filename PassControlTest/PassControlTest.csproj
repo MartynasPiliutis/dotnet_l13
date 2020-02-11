@@ -54,6 +54,7 @@
     <Compile Include="EmployeeRepositoryTest.cs" />
     <Compile Include="EmployeeTest.cs" />
     <Compile Include="EventControllerTest.cs" />
+    <Compile Include="ReportGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

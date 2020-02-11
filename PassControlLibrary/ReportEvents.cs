@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PassControlLibrary
 {
-    class ReportEvents
+    public class ReportEvent
     {
         public string NameSurname { get; private set; }
         public string GateName { get; private set; }
         public string DatePass { get; private set; }
         public string PassControl { get; private set; }
 
-        public ReportEvents(string nameSurname, string gateName, DateTime datePass, bool passControl)
+        public ReportEvent(string nameSurname, string gateName, DateTime datePass, bool passControl)
         {
             NameSurname = nameSurname;
             GateName = gateName;
