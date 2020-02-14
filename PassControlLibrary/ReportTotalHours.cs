@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PassControlLibrary
 {
-    class ReportTotalHours
+    public class ReportTotalHours
     {
         public string NameSurname { get; private set; }
         public string TotalHours { get; private set; }

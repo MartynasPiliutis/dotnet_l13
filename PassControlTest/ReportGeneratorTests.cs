@@ -18,7 +18,7 @@ namespace PassControlTest
             EventList.Add(new Event(123456, 2020, 34, DateTime.Now, true));
             EventList.Add(new Event(654321, 2010, 34, DateTime.Now, false));
             ReportGenerator reportGenerator = new ReportGenerator(employeeRepository, gateRepository, EventList);
-            List<ReportEvent> reportEvents = reportGenerator.GanerateAllEventsRport();
+            List<ReportEvent> reportEvents = reportGenerator.GanerateAllEventsReport();
             int reportEventsCount = reportEvents.Count;
 
             string userPassName = reportEvents[0].NameSurname;
