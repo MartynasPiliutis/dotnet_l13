@@ -27,6 +27,17 @@ namespace PassControlLibrary
             return employeePass;
         }
 
+        public List<Event> SaveTryPass(int employeeId, int gateIdPass)
+        {
+            Employee employee = employeeRepository.GetEmployeeById(employeeId);
+            bool employeePass;
+            int employeeIdFind = employee.EmployeeId;
+            employeePass = employee.CheckEmployeeHasRight(gateIdPass);
+            Event actionSave = new Event(GetNewEventId(), employeeId, gateIdPass, GetNewEventPassTime(), employeePass);
+            EventList.Add(actionSave);
+            return EventList;
+        }
+
         public long GetNewEventId()
         {
             return Convert.ToInt64($"{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}{DateTime.Now.Hour}{DateTime.Now.Minute}{DateTime.Now.Second}{DateTime.Now.Millisecond}");
