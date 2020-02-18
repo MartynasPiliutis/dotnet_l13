@@ -11,7 +11,7 @@ namespace PassControlLibrary
         public string NameSurname { get; private set; }
         public string TotalHours { get; private set; }
 
-        public ReportTotalHours(string nameSurname, int totalHours)
+        public ReportTotalHours(string nameSurname, double totalHours)
         {
             NameSurname = nameSurname;
             TotalHours = Convert.ToString(totalHours);

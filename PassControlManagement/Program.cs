@@ -31,12 +31,12 @@ namespace PassControlManagement
             }
 
             Console.WriteLine("Pradedam");
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 200; i++)
             {
                 Console.WriteLine( $"{i}");
-                darbuotojoId = rnd.Next(2001, 2020);
+                darbuotojoId = rnd.Next(2001, 2021);
 
-                vartuNr = rnd.Next(1,4);
+                vartuNr = rnd.Next(31,35);
 
                 pauze = rnd.Next(100, 10000);
                 Console.WriteLine($"{darbuotojoId} {vartuNr} {pauze}");
@@ -64,7 +64,20 @@ namespace PassControlManagement
                 Console.WriteLine($"{item.NameSurname} {item.GateName} {item.DatePass} {item.PassControl}");
             }
 
+            Console.WriteLine("Pass2.1");
+
+            foreach (var item in reportEvents)
+            {
+                if (item.PassControl == "Success")
+                {
+                    Console.WriteLine($"{item.NameSurname} {item.GateName} {item.DatePass} {item.PassControl}");
+
+                }
+            }
+
             Console.WriteLine("Pass3");
+
+
 
             foreach (var item in reportTotalHours)
             {

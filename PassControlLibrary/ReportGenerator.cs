@@ -36,30 +36,33 @@ namespace PassControlLibrary
         {
             for (int id = 2001; id <= 2020; id++)
             {
-                int checkEmployeeId = id;
                 List<ReportOnePass> reportOnePass = new List<ReportOnePass>();
-                int totalHours = 0;
+                double totalHours = 0;
                 foreach (var oneEvent in EventList)
                 {
                     int employeeId = oneEvent.EmployeeId;
-                    if (oneEvent.Pass == true && employeeId == checkEmployeeId)
+                    if (oneEvent.Pass == true && employeeId == id)
                     {
                         ReportOnePass onePass = new ReportOnePass(oneEvent.PassTime);
                         reportOnePass.Add(onePass);
-
-                        for (int i = 1; i <= reportOnePass.Count - 1; i = i + 2)
-                        {
-                            int j = i + 1;
-                            DateTime passTimeIn = reportOnePass[i].OnePass;
-                            DateTime passTimeOut = reportOnePass[j].OnePass;
-                            TimeSpan timeIn = passTimeOut - passTimeIn;
-                            totalHours = totalHours + Convert.ToInt32(timeIn);
-                        }
-                        string name = employeeRepository.GetEmployeeById(checkEmployeeId).NameSurname;
-                        reportTotalHours.Add(new ReportTotalHours(name, totalHours));
                     }
                 }
-                
+                foreach (var item in reportOnePass)
+                {
+                    Console.WriteLine($"{id} {item.OnePass}");
+                }
+                Console.WriteLine("---------------------------------------------------");
+
+                for (int i = 0; i < reportOnePass.Count - 1; i = i + 2)
+                {
+                    int j = i + 1;
+                    DateTime passTimeIn = reportOnePass[i].OnePass;
+                    DateTime passTimeOut = reportOnePass[j].OnePass;
+                    double timeIn = (passTimeOut - passTimeIn).TotalMinutes;
+                    totalHours = totalHours + timeIn;
+                }
+            string name = employeeRepository.GetEmployeeById(id).NameSurname;
+            reportTotalHours.Add(new ReportTotalHours(name, totalHours));
             }
             return reportTotalHours;
         }
